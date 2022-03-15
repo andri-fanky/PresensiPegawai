@@ -1,0 +1,43 @@
+<resources>
+    <string name="app_name">Presensi Pegawai</string>
+    <string name="sign_in">Sign in</string>
+    <string name="sign_in_description">Silahkan Masuk menggunakan email dan password yang terdaftar</string>
+    <string name="email_title">Email</string>
+    <string name="password_title">Password</string>
+    <string name="forgot_password">Lupa password?</string>
+    <string name="btn_sign_in">Sign in</string>
+    <string name="btn_sign_out">Sign out</string>
+
+    <string name="home">Beranda</string>
+    <string name="btn_masuk">Masuk</string>
+    <string name="btn_keluar">Keluar</string>
+    <string name="tv_name">-</string>
+    <string name="tv_unit_kerja">-</string>
+    <string name="tv_jam">-</string>
+    <string name="tv_tanggal">-</string>
+    <string name="tv_status">Hari ini Anda belum melakukan presensi</string>
+    <string name="tv_total">0 Jam 0 Menit</string>
+
+    <string name="history">Riwayat</string>
+    <string name="tv_tanggal_header">Tanggal</string>
+    <string name="tv_jam_masuk_header">Jam Masuk</string>
+    <string name="tv_jam_pulang_header">Jam Pulang</string>
+    <string name="tv_total_jam_title">Total Jam</string>
+    <string name="tv_total_jam">0 Jam 0 Menit</string>
+
+    <string name="map_coverage_area">Area Jangkauan Peta</string>
+
+    <string name="profile">Profil</string>
+    <string name="tv_biodata">Biodata</string>
+    <string name="tv_nama_lengkap_title">Nama Lengkap</string>
+    <string name="tv_email_title">Email</string>
+    <string name="tv_email">-</string>
+    <string name="tv_unit_kerja_title">Unit Kerja</string>
+
+    <string name="title_sign_out">Sign out</string>
+    <string name="dialog_sign_out">Apakah Anda yakin?</string>
+    <string name="title_presensi_masuk">Presensi Masuk</string>
+    <string name="dialog_presensi_masuk">Apakah Anda yakin?</string>
+    <string name="title_presensi_keluar">Presensi Keluar?</string>
+    <string name="dialog_presensi_keluar">Apakah Anda yakin?</string>
+</resources>
