@@ -26,10 +26,19 @@ import com.google.android.gms.tasks.Task;
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ * The type Map coverage area activity.
+ */
 public class MapCoverageAreaActivity extends FragmentActivity implements OnMapReadyCallback {
 
-    // Deklarasi variable
+    /**
+     * The Current location.
+     * currentLocation adalah inisialisasi variable untuk fungsi mendapatkan lokasi terkini pengguna.
+     */
     Location currentLocation;
+    /**
+     * The Fused location provider client.
+     */
     FusedLocationProviderClient fusedLocationProviderClient;
     private static final int REQUEST_CODE = 101;
 
@@ -139,6 +148,12 @@ public class MapCoverageAreaActivity extends FragmentActivity implements OnMapRe
         }
     }
 
+    /**
+     * Check position boolean.
+     * Method checkPosition digunakan untuk mengecek apakah lokasi terkini user berada di dalam area jangkauan atau di dalam area jangkauan.
+     * @param position the position berisi Latitude dan Longitude dari lokasi user.
+     * @return the boolean
+     */
     public boolean checkPosition(LatLng position) {
         boolean isInside = false;
         double lat = position.latitude;

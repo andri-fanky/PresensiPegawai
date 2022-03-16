@@ -7,6 +7,10 @@ import android.content.SharedPreferences;
 import android.os.Bundle;
 import android.os.Handler;
 
+/**
+ * The type Splash screen activity.
+ * Activity Splash Screen digunakan untuk menampilkan sebuah halaman awal sebelum masuk ke halaman utama aplikasi, dan hanya tampil beberapa detik saja.
+ */
 public class SplashScreenActivity extends AppCompatActivity {
 
     @Override
@@ -16,6 +20,12 @@ public class SplashScreenActivity extends AppCompatActivity {
 
         // Fungsi delay untuk SplashScreen, durasi delay 2000 miliseconds atau sama dengan 2 detik
         new Handler().postDelayed(new Runnable() {
+            /**
+             * Method run dijalankan pertama kali setelah 2 detik aplikasi dibuka.
+             * Method run berisi fungsi untuk mengecek session user apakah ada atau tidak.
+             * Jika ada session, maka masuk ke halaman utama.
+             * Jika tidak ada session, maka masuk ke halaman login.
+             */
             @Override
             public void run() {
                 // Deklarasi variable SharedPreferences untuk mengambil Session id_user

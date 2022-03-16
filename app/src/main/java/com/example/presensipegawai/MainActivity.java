@@ -15,6 +15,10 @@ import android.view.View;
 import com.google.android.material.bottomnavigation.BottomNavigationView;
 import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
+/**
+ * The type Main activity.
+ * Activity Main digunakan untuk menampilkan halaman utama aplikasi.
+ */
 public class MainActivity extends AppCompatActivity {
 
     // Deklarasi variable

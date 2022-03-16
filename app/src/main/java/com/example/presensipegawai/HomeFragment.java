@@ -29,7 +29,6 @@ import com.android.volley.toolbox.Volley;
 import com.example.presensipegawai.helper.Api;
 import com.google.android.gms.location.FusedLocationProviderClient;
 import com.google.android.gms.location.LocationServices;
-import com.google.android.gms.maps.SupportMapFragment;
 import com.google.android.gms.maps.model.LatLng;
 import com.google.android.gms.tasks.OnSuccessListener;
 import com.google.android.gms.tasks.Task;
@@ -44,12 +43,11 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
-import static android.content.Context.MODE_PRIVATE;
-
 /**
  * A simple {@link Fragment} subclass.
  * Use the {@link HomeFragment#newInstance} factory method to
  * create an instance of this fragment.
+ * Fragment Home digunakan untuk menampilkan halaman presensi.
  */
 public class HomeFragment extends Fragment {
 
@@ -62,13 +60,65 @@ public class HomeFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    TextView tvNama, tvUnitKerja, tvJam, tvTanggal, tvStatus, tvTotal;
-    Button btnMasuk, btnKeluar;
+    /**
+     * The Tv nama.
+     * tvNama adalah inisialisasi variable dari activity untuk menampilkan nama dari user.
+     */
+    TextView tvNama,
+    /**
+     * The Tv unit kerja.
+     * tvUnitKerja adalah inisialisasi variable dari activity untuk menampilkan unit kerja dari user.
+     */
+    tvUnitKerja,
+    /**
+     * The Tv jam.
+     * tvJam adalah inisialisasi variable dari activity untuk menampilkan jam sekarang.
+     */
+    tvJam,
+    /**
+     * The Tv tanggal.
+     * tvTanggal adalah inisialisasi variable dari activity untuk menampilkan tanggal sekarang.
+     */
+    tvTanggal, /**
+     * The Tv status.
+     * tvStatus adalah inisialisasi variable dari activity untuk menampilkan status presensi dari user.
+     */
+    tvStatus,
+    /**
+     * The Tv total.
+     * tvTotal adalah inisialisasi variable dari activity untuk menampilkan total atau jumlah waktu presensi masuk yang sudah di akumulasikan pada hari ini.
+     */
+    tvTotal;
+    /**
+     * The Btn masuk.
+     * btnMasuk adalah inisialisasi variable dari activity untuk tombol masuk untuk melakukan presensi masuk.
+     */
+    Button btnMasuk,
+    /**
+     * The Btn keluar.
+     * btnKeluar adalah inisialisasi variable dari activity untuk tombol keluar untuk melakukan presensi keluar.
+     */
+    btnKeluar;
+    /**
+     * The Id user.
+     * idUser adalah variable untuk menyimpan id dari user.
+     */
     String idUser;
 
+    /**
+     * The Status.
+     * status adalah variable untuk menyimpan status presensi dari user, apakah sekarang dalam presensi sudah presensi masuk atau belum.
+     */
     int status;
 
+    /**
+     * The Current location.
+     * currentLocation adalah inisialisasi variable untuk fungsi mendapatkan lokasi terkini pengguna.
+     */
     Location currentLocation;
+    /**
+     * The Fused location provider client.
+     */
     FusedLocationProviderClient fusedLocationProviderClient;
     private static final int REQUEST_CODE = 101;
 
@@ -78,6 +128,9 @@ public class HomeFragment extends Fragment {
     private static final String TAG = HomeFragment.class.getSimpleName();
     private static final String TAG_STATUS = "status";
 
+    /**
+     * Instantiates a new Home fragment.
+     */
     public HomeFragment() {
         // Required empty public constructor
     }
@@ -90,7 +143,7 @@ public class HomeFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment HomeFragment.
      */
-    // TODO: Rename and change types and number of parameters
+// TODO: Rename and change types and number of parameters
     public static HomeFragment newInstance(String param1, String param2) {
         HomeFragment fragment = new HomeFragment();
         Bundle args = new Bundle();
@@ -213,11 +266,19 @@ public class HomeFragment extends Fragment {
         }).start();
     }
 
+    /**
+     * Gets time.
+     * Method getTime digunakan untuk mendapatkan waktu terkini.
+     */
     void getTime() {
         SimpleDateFormat dateFormat = new SimpleDateFormat("HH:mm"); // Mengambil Date Format
         tvJam.setText(dateFormat.format(new Date())); // Set value ke TextView Jam
     }
 
+    /**
+     * Gets last presence.
+     * Method getLastPresence digunakan untuk mendapatkan data presensi terakhir user.
+     */
     public void getLastPresence() {
         RequestQueue requestQueue = Volley.newRequestQueue(this.getActivity());
 
@@ -263,6 +324,10 @@ public class HomeFragment extends Fragment {
         requestQueue.add(stringRequest);
     }
 
+    /**
+     * Method fetchLocation digunakan untuk mendapatkan Lokasi Terkini user.
+     * @param status digunakan untuk membedakan apakah user melakukan presensi masuk / keluar.
+     */
     private void fetchLocation(String status) {
         if (ActivityCompat.checkSelfPermission(
                 this.getActivity(), Manifest.permission.ACCESS_FINE_LOCATION) != PackageManager.PERMISSION_GRANTED && ActivityCompat.checkSelfPermission(
@@ -288,6 +353,10 @@ public class HomeFragment extends Fragment {
         });
     }
 
+    /**
+     * Presensi masuk.
+     * Method presensiMasuk digunakan untuk melakukan proses presensi masuk.
+     */
     public void presensiMasuk() {
         LatLng latLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
 
@@ -327,6 +396,10 @@ public class HomeFragment extends Fragment {
         }
     }
 
+    /**
+     * Presensi keluar.
+     * Method presensiKeluar digunakan untuk melakukan presensi keluar.
+     */
     public void presensiKeluar() {
         LatLng latLng = new LatLng(currentLocation.getLatitude(), currentLocation.getLongitude());
 
@@ -366,6 +439,12 @@ public class HomeFragment extends Fragment {
         }
     }
 
+    /**
+     * Check position boolean.
+     * Method checkPosition digunakan untuk mengecek apakah lokasi terkini user berada di dalam area jangkauan atau di dalam area jangkauan.
+     * @param position the position berisi Latitude dan Longitude dari lokasi user.
+     * @return the boolean
+     */
     public boolean checkPosition(LatLng position) {
         boolean isInside = false;
         double lat = position.latitude;

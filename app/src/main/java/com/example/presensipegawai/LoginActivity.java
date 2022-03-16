@@ -25,16 +25,44 @@ import org.json.JSONObject;
 import java.util.HashMap;
 import java.util.Map;
 
+/**
+ * The type Login activity.
+ * Activity Login digunakan untuk menampilkan halaman login aplikasi.
+ */
 public class LoginActivity extends AppCompatActivity {
 
-    // Deklarasi variable
-    EditText edtEmail, edtPassword;
+    /**
+     * The Edt email.
+     * edtEmail adalah inisialisasi variable dari activity untuk input password dari user.
+     */
+    EditText edtEmail,
+    /**
+     * The Edt password.
+     * edtPassword adalah inisialisasi variable dari activity untuk input password dari user.
+     */
+    edtPassword;
+    /**
+     * The Btn sign in.
+     * btnSignIn digunakan untuk
+     */
     Button btnSignIn;
-    String email, password;
+    /**
+     * The Email.
+     * variable email digunakan untuk menyimpan input email dari user.
+     */
+    String email,
+    /**
+     * The Password.
+     * variable password digunakan untuk menyimpan input password dari user.
+     */
+    password;
+    /**
+     * The Status.
+     * variable status digunakan untuk menyimpan response dari API, apakah proses login sukses / gagal.
+     */
     boolean status;
 
-    // Deklarasi variable url_login digunakan untuk mengakses API login
-//    private static String url_login = "http://192.168.1.5/Kuliah/Presensi-Pegawai_API/auth/login.php";
+    // Deklarasi variable url_login digunakan untuk mengakses url API untuk fungsi login
     private static String url_login = Api.url+"/auth/login.php";
     private static final String TAG = LoginActivity.class.getSimpleName();
     private static final String TAG_STATUS = "status";
@@ -58,13 +86,20 @@ public class LoginActivity extends AppCompatActivity {
         });
     }
 
-    // Membuka halaman MainActivity
+    /**
+     * Open main activity.
+     * Method openMainActivity digunakan untuk membuka halaman utama.
+     */
     public void openMainActivity() {
         Intent intent = new Intent(getApplicationContext(), MainActivity.class);
         startActivity(intent);
         finish(); // Menutup LoginActivity
     }
 
+    /**
+     * Login process.
+     * Method loginProcess digunakan untuk proses login.
+     */
     public void loginProcess() {
         // Mengambil teks pada EditText Email & Password
         email = edtEmail.getText().toString();

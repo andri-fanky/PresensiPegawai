@@ -32,18 +32,46 @@ import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
+/**
+ * The type History activity.
+ * Activity History digunakan untuk menampilkan riwayat presensi dari user.
+ */
 public class HistoryActivity extends AppCompatActivity {
 
-    // Deklarasi variable
-    Spinner spinMonth, spinYear;
+    /**
+     * The Spin month.
+     * spinMonth adalah inisialisasi variable dari activity untuk dropdown filter berdasarkan bulan.
+     */
+    Spinner spinMonth,
+    /**
+     * The Spin year.
+     * spinYear adalah inisialisasi variable dari activity untuk dropdown filter berdasarkan tahun.
+     */
+    spinYear;
+    /**
+     * The List view history.
+     * listViewHistory adalah inisialisasi variable dari activity untuk menampilkan daftar riwayat presensi.
+     */
     ListView listViewHistory;
+    /**
+     * The Tv total jam.
+     * tvTotalJam adalah inisialisasi variable dari activity untuk menampilkan total / jumlah akumulasi presensi masuk dari user selama sebulan.
+     */
     TextView tvTotalJam;
 
     private static String url_monthYear = Api.url+"/presensi/getMonthYear.php";
     private static String url_history = Api.url+"/presensi/getHistory.php";
     private static final String TAG = HistoryActivity.class.getSimpleName();
 
+    /**
+     * The Month.
+     * Variable month digunakan untuk menyimpan daftar bulan yang digunakan untuk filter riwayat.
+     */
     List<String> month = new ArrayList<String>();
+    /**
+     * The Year.
+     * Variable year digunakan untuk menyimpan daftar tahun yang digunakan untuk filter riwayat.
+     */
     List<String> year = new ArrayList<String>();
 
     @Override
@@ -87,6 +115,10 @@ public class HistoryActivity extends AppCompatActivity {
         });
     }
 
+    /**
+     * Gets history.
+     * Method getHistory digunakan untuk mendapatkan data riwayat presensi.
+     */
     public void getHistory() {
         // Deklarasi variable ArrayList
         ArrayList<History> listHistory = new ArrayList<History>();
@@ -143,6 +175,10 @@ public class HistoryActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+    /**
+     * Gets month year.
+     * Method getMonthYear digunakan untuk mendapatkan data bulan dan tahun untuk filter riwayat presensi.
+     */
     public void getMonthYear() {
         RequestQueue requestQueue = Volley.newRequestQueue(getApplicationContext());
 
@@ -178,6 +214,10 @@ public class HistoryActivity extends AppCompatActivity {
         requestQueue.add(stringRequest);
     }
 
+    /**
+     * Sets adapter.
+     * Method setAdapter digunakan untuk mengeset adapter yang terdapat di layout dengan variable yang sudah di deklarasikan.
+     */
     public void setAdapter() {
         ArrayAdapter<String> adapter1 = new ArrayAdapter<String>(this, android.R.layout.simple_spinner_item, month);
         adapter1.setDropDownViewResource(android.R.layout.simple_spinner_dropdown_item);

@@ -19,6 +19,7 @@ import android.widget.Toast;
  * A simple {@link Fragment} subclass.
  * Use the {@link ProfileFragment#newInstance} factory method to
  * create an instance of this fragment.
+ * Fragment Profile digunakan untuk menampilkan halaman profil user.
  */
 public class ProfileFragment extends Fragment {
 
@@ -31,10 +32,40 @@ public class ProfileFragment extends Fragment {
     private String mParam1;
     private String mParam2;
 
-    // Deklarasi variable
-    TextView tvNama, tvUnitKerja, tvNamaBiodata, tvEmailBiodata, tvUnitKerjaBiodata;
+    /**
+     * The Tv nama.
+     * tvNama adalah inisialisasi variable dari activity untuk menampilkan nama dari user.
+     */
+    TextView tvNama,
+    /**
+     * The Tv unit kerja.
+     * tvUnitKerja adalah inisialisasi variable dari activity untuk menampilkan unit kerja dari user.
+     */
+    tvUnitKerja,
+    /**
+     * The Tv nama biodata.
+     * tvNamaBiodata adalah inisialisasi variable dari activity untuk menampilkan nama dari user.
+     */
+    tvNamaBiodata,
+    /**
+     * The Tv email biodata.
+     * tvEmailBiodata adalah inisialisasi variable dari activity untuk menampilkan email dari user.
+     */
+    tvEmailBiodata,
+    /**
+     * The Tv unit kerja biodata.
+     * tvUnitKerjaBiodata adalah inisialisasi variable dari activity untuk menampilkan unit kerja dari user.
+     */
+    tvUnitKerjaBiodata;
+    /**
+     * The Btn sign out.
+     * btnSignOut adalah inisialisasi variable dari activity untuk tombol sign out dari aplikasi.
+     */
     Button btnSignOut;
 
+    /**
+     * Instantiates a new Profile fragment.
+     */
     public ProfileFragment() {
         // Required empty public constructor
     }
@@ -47,7 +78,7 @@ public class ProfileFragment extends Fragment {
      * @param param2 Parameter 2.
      * @return A new instance of fragment ProfileFragment.
      */
-    // TODO: Rename and change types and number of parameters
+// TODO: Rename and change types and number of parameters
     public static ProfileFragment newInstance(String param1, String param2) {
         ProfileFragment fragment = new ProfileFragment();
         Bundle args = new Bundle();
